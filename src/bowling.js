@@ -2,8 +2,8 @@
 const bowl = (game) => {
     //return bowlTestA(game);
     //return bowlTestB(game);
-    return bowlTestC(game);
-    // return bowlTestD(game);
+    //return bowlTestC(game);
+    return bowlTestD(game);
     // return bowlTestE(game);
     // return bowlRefactor(game);    
 }
@@ -55,7 +55,7 @@ const bowlTestC = (game) => {
     game.forEach(frame => {
         frame.forEach((thrw,idxThrw) => {
             first = (idxThrw===0 ? thrw : first)
-            totalGame = totalGame + thrw + (spare ? first : 0) + (strike ? 10 : 0)
+            totalGame += thrw + (spare ? first : 0) + (strike ? 10 : 0)
             spare = (idxThrw===1 && (first + thrw === 10) && !strike);
             strike = (idxThrw===0 && first === 10);
             //console.log(`totalGame ${totalGame} first ${first} thrw ${thrw} idxThrw ${idxThrw} spare ${spare} strike ${strike}`)
@@ -64,7 +64,24 @@ const bowlTestC = (game) => {
     });
     return totalGame;
 };
-const bowlTestD = (game) => {};
+const bowlTestD = (game) => {
+    let totalGame = 0;
+    let spare = false;
+    let strike = false;
+    game.forEach((frame, idxFrame) => {
+        frame.forEach((thrw,idxThrw) => {
+            first = (idxThrw===0 ? thrw : first)
+            totalGame += thrw + 
+                        ((spare && idxFrame < 10) ? first : 0) + 
+                        (strike ? 10 : 0)
+            spare = (idxThrw===1 && (first + thrw === 10) && !strike);
+            strike = (idxThrw===0 && first === 10);
+            //console.log(`totalGame ${totalGame} first ${first} thrw ${thrw} idxThrw ${idxThrw} spare ${spare} strike ${strike} idxFrame ${idxFrame}`)
+        });
+        //console.log(`totalGame ${totalGame}`);
+    });
+    return totalGame;
+};
 const bowlTestE = (game) => {};
 const bowlRefactor = (game) => {};
 
