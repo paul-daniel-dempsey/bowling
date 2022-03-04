@@ -35,35 +35,32 @@ const bowlTestA = (game) => {
 // (B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled
 const bowlTestB = (game) => {
     let totalGame = 0;
-    let totalFrame = 0;
-    let multiplier = 1;
+    let spare = false;
     game.forEach(frame => {
-        frame.forEach((thrw,index) => {
-            totalFrame += (thrw * multiplier);
-            multiplier = ((index===1 && (totalFrame === 10)) ? 2 : 1);
+        frame.forEach((thrw,idxThrw) => {
+            first = (idxThrw===0 ? thrw : first)
+            totalGame = totalGame + thrw + (spare ? first : 0)
+            spare = (idxThrw===1 && (first + thrw === 10));
+            //console.log(`totalGame ${totalGame} first ${first} thrw ${thrw} idxThrw ${idxThrw} spare ${spare}`)
         });
-        totalGame += totalFrame;
-        totalFrame = 0;
+        //console.log(`totalGame ${totalGame}`);
     });
     return totalGame;
 };
 
 const bowlTestC = (game) => {
     let totalGame = 0;
-    let totalFrame = 0;
-    let spare = 1;
-    let strike = 0;
+    let spare = false;
+    let strike = false;
     game.forEach(frame => {
-        frame.forEach((thrw,index) => {
-            totalFrame += (thrw * spare);
-            spare = ((totalFrame === 10 && index===1 && strike !== 10) ? 2 : 1);
-            strike = ((totalFrame === 10 && index===0) ? 10 : strike);
-            console.log(`totalFrame ${totalFrame} thrw ${thrw} index ${index} multiplySpare ${spare} strike ${strike}`)
+        frame.forEach((thrw,idxThrw) => {
+            first = (idxThrw===0 ? thrw : first)
+            totalGame = totalGame + thrw + (spare ? first : 0) + (strike ? 10 : 0)
+            spare = (idxThrw===1 && (first + thrw === 10) && !strike);
+            strike = (idxThrw===0 && first === 10);
+            //console.log(`totalGame ${totalGame} first ${first} thrw ${thrw} idxThrw ${idxThrw} spare ${spare} strike ${strike}`)
         });
-        totalGame += totalFrame + strike;
-        console.log(`totalGame ${totalGame}`);
-        strike = 0
-        totalFrame = 0;
+        //console.log(`totalGame ${totalGame}`);
     });
     return totalGame;
 };
