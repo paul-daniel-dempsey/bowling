@@ -35,8 +35,8 @@ const { bowl } = require("./bowling");
 describe("bowl", () => {
     test("(A) GAME array of 10 FRAMES containing 2 THROWS", () => {
         expect(bowl([[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(90);
-        // expect(bowl([[3,6],[3,6],[3,6],[1,2],[3,6],[3,6],[2,1],[3,6],[3,6],[3,6]])).toEqual(78);
-        // expect(bowl([[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0]])).toEqual(90);
+        expect(bowl([[3,6],[3,6],[3,6],[1,2],[3,6],[3,6],[2,1],[3,6],[3,6],[3,6]])).toEqual(78);
+        expect(bowl([[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0]])).toEqual(90);
     } )
     // test("(B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled", () => {
     //     expect(bowl([[9,1],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(94);

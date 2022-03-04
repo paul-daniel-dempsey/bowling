@@ -8,6 +8,7 @@ const bowl = (game) => {
     // return bowlRefactor(game);    
 }
 
+// (A) GAME array of 10 FRAMES containing 2 THROWS
 const bowlTestA = (game) => {
 
     // V1
@@ -16,9 +17,22 @@ const bowlTestA = (game) => {
     // return total;
 
     // V2
-    return game.reduce((lhs, frame) => lhs + frame.reduce((lhs, thrw) => lhs + thrw,0),0)
+    // return game.reduce((lhs, frame) => lhs + frame.reduce((lhs, thrw) => lhs + thrw,0),0)
+
+    // V3 Expanded
+    let totalGame = 0;
+    let totalFrame = 0;
+    game.forEach(frame => {
+        frame.forEach(thrw => {
+            totalFrame += thrw
+        });
+        totalGame += totalFrame;
+        totalFrame = 0;
+    });
+    return totalGame; 
 };
 
+// (B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled
 const bowlTestB = (game) => {};
 const bowlTestC = (game) => {};
 const bowlTestD = (game) => {};
