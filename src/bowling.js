@@ -1,7 +1,7 @@
 
 const bowl = (game) => {
-    return bowlTestA(game);
-    // return bowlTestB(game);
+    //return bowlTestA(game);
+    return bowlTestB(game);
     // return bowlTestC(game);
     // return bowlTestD(game);
     // return bowlTestE(game);
@@ -33,7 +33,21 @@ const bowlTestA = (game) => {
 };
 
 // (B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled
-const bowlTestB = (game) => {};
+const bowlTestB = (game) => {
+    let totalGame = 0;
+    let totalFrame = 0;
+    let multiplier = 1;
+    game.forEach(frame => {
+        frame.forEach((thrw,index) => {
+            totalFrame += (thrw * multiplier);
+            multiplier = ((index===1 && (totalFrame === 10)) ? 2 : 1);
+        });
+        totalGame += totalFrame;
+        totalFrame = 0;
+    });
+    return totalGame;
+};
+
 const bowlTestC = (game) => {};
 const bowlTestD = (game) => {};
 const bowlTestE = (game) => {};

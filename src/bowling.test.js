@@ -38,10 +38,10 @@ describe("bowl", () => {
         expect(bowl([[3,6],[3,6],[3,6],[1,2],[3,6],[3,6],[2,1],[3,6],[3,6],[3,6]])).toEqual(78);
         expect(bowl([[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0],[9,0]])).toEqual(90);
     } )
-    // test("(B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled", () => {
-    //     expect(bowl([[9,1],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(94);
-    //     expect(bowl([[0,10],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(94);
-    // } )
+    test("(B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled", () => {
+        expect(bowl([[9,1],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(94);
+        expect(bowl([[0,10],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(94);
+    } )
     // test("(C) 1-9TH FRAME STRIKE, FIRST THROW = 10, following FRAME doubled", () => {
     //     expect(bowl([[10,0],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6],[3,6]])).toEqual(100);
     // } )    
