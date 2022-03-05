@@ -49,10 +49,10 @@ describe("bowlgame", () => {
          expect(bowlgame([5,5,5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])).toEqual(27);
          expect(bowlgame([0,10,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(94);
     } )
-    // test("(C) 1-9TH FRAME STRIKE, FIRST THROW = 10, following FRAME doubled", () => {
-    //      expect(bowlgame([10,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(100);
-    //      expect(bowlgame([10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])).toEqual(30);
-    // } )    
+    test("(C) 1-9TH FRAME STRIKE, FIRST THROW = 10, following FRAME doubled", () => {
+         expect(bowlgame([10,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(100);
+         expect(bowlgame([10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])).toEqual(30);
+    } )    
     // test("(D) SPARE -> 10TH FRAME, Add single THROW", () => {
     //      expect(bowlgame([3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,9,1,5,0])).toEqual(101);
     //      expect(bowlgame([3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,9,1,9,0])).toEqual(109);
