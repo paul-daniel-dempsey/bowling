@@ -9,7 +9,7 @@ const bowlgame = (game) => {
 
 // (A) GAME of 20 THROWS or 10 FRAMEs
 const bowlgameTestA = (throws) => {
-    return 90;
+    return throws.reduce((lhs, thrw) => lhs + thrw,0);
 }
 // (B) SPARE -> 1-9TH FRAME, Add single THROW   
 const bowlgameTestB = (throws) => {}
