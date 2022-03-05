@@ -44,11 +44,11 @@ describe("bowlgame", () => {
         expect(bowlgame([3,6,3,6,3,6,1,2,3,6,3,6,2,1,3,6,3,6,3,6])).toEqual(78);
         expect(bowlgame([9,0,9,0,9,0,9,0,9,0,9,0,9,0,9,0,9,0,9,0])).toEqual(90);
     } )
-    // test("(B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled", () => {
-    //      expect(bowlgame([9,1,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(94);
-    //      expect(bowlgame([5,5,5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])).toEqual(27);
-    //      expect(bowlgame([0,10,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(94);
-    // } )
+    test("(B) 1-9TH FRAME SPARE, FIRST THROW < 10, BOTH THROWS = 10, following THROW doubled", () => {
+         expect(bowlgame([9,1,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(94);
+         expect(bowlgame([5,5,5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])).toEqual(27);
+         expect(bowlgame([0,10,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(94);
+    } )
     // test("(C) 1-9TH FRAME STRIKE, FIRST THROW = 10, following FRAME doubled", () => {
     //      expect(bowlgame([10,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6])).toEqual(100);
     //      expect(bowlgame([10,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])).toEqual(30);
