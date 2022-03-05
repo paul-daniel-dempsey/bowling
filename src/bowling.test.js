@@ -58,9 +58,9 @@ describe("bowlgame", () => {
          expect(bowlgame([3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,3,6,9,1,9,0])).toEqual(109);
          expect(bowlgame([5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,0])).toEqual(155);
     } )    
-    // test("(E) STRIKE -> 10TH FRAME Add single THROW, 11TH FRAME nothing", () => {
-    //     expect(bowlgame([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,5,2])).toEqual(24);
-    //     expect(bowlgame([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,10,5,5])).toEqual(55);
-    //     expect(bowlgame([10,10,10,10,10,10,10,10,10,10,10])).toEqual(300);        
-    // } ) 
+    test("(E) STRIKE -> 10TH FRAME Add single THROW, 11TH FRAME nothing", () => {
+        expect(bowlgame([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,5,2])).toEqual(24);
+        expect(bowlgame([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,10,5,5])).toEqual(55);
+        expect(bowlgame([10,10,10,10,10,10,10,10,10,10,10])).toEqual(300);        
+    } ) 
 })

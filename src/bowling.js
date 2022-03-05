@@ -2,8 +2,8 @@ const bowlgame = (game) => {
     //return bowlgameTestA(game);
     //return bowlgameTestB(game);
     //return bowlgameTestC(game);
-    return bowlgameTestD(game);
-    //return bowlgameTestE(game);
+    //return bowlgameTestD(game);
+    return bowlgameTestE(game);
     //return bowlgameRefactor(game);    
 }
 
@@ -90,7 +90,38 @@ const bowlgameTestD = (throws) => {
 }
 
 // (E) STRIKE -> 10TH FRAME Add single THROW, 11TH FRAME nothing
-const bowlgameTestE = (throws) => {}
+const bowlgameTestE = (throws) => {
+ 
+    let gameScore = 0;
+    for(i=0;i<throws.length; i++) {  // Arrow function wont go forward 1/2 places to get spares/strikes
+  
+        frame = throws[i]
+        if (frame === 10) {
+            // Strike
+            gameScore += frame +
+                        (typeof(throws[i+1])!=='undefined'?throws[i+1]:0) +
+                        (typeof(throws[i+2])!=='undefined'?throws[i+2]:0)
+            console.log(`Pos:[${i}] gameScore ${gameScore} = gameScore + framescore ${frame} + strike (${throws[i+1]} + ${throws[i+2]})`);
+        }
+        else {
+            // Spare
+            frame += (typeof(throws[i+1])!=='undefined'?throws[i+1]:0);
+            if (frame === 10) {
+               
+                gameScore += frame + (typeof(throws[i+2])!=='undefined'?throws[i+2]:0)
+                console.log(`Pos:[${i}] gameScore ${gameScore} = gameScore + framescore ${frame} + spare ${throws[i+2]}`);
+            }
+            else {
+                gameScore += frame
+                console.log(`Pos:[${i}] gameScore ${gameScore} = gameScore + framescore ${frame}`);
+            }
+        }
+        i += (throws[i] !== 10 ? 1 : 0);
+    }
+    return gameScore; 
+}
+
+
 const bowlgameTestRefactor = (throws) => {}
 
 module.exports = {bowlgame};
